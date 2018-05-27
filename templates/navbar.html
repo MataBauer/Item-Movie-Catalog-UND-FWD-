@@ -1,0 +1,22 @@
+<div class="navbar">
+	<ul>
+		<li><a class="#" href="/">Home</a> </li>
+		<li><a class="active" href="/category/">Project Item Catalog</a></li>
+		<hr />
+		{% if not user.username %}
+		<li>
+			<a href="{{url_for('showLogin')}}">Sign in</a>
+       	</li>
+       	{% endif %}
+       	{% if user.username %}
+       	<li>
+       		<p style='color:#004766; margin-left:16px; font-size: 120%; text-decoration-line: underline;'><strong>Logged in as:</strong></p>
+       		<p style='color:#004766; margin-left:16px; font-style: italic;'>{{user.username}}</p>
+       		<img src="{{user.picture}}" style='width: 45px; margin-left: 24px;'/>
+       	</li>
+              <li>
+       		<a href="{{url_for('gdisconnect')}}" style="font-size: 120%; margin-left: 8px; color: #600;"><strong>&gt; Log off!</strong></a>
+       	</li>
+       	{% endif %}
+	</ul>
+</div>

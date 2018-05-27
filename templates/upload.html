@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head section -->
+{% include "head.html" %}
+
+<!-- below is  the main HTML content -->
+<body>
+<div class="wrapper">
+	
+	<!-- page header -->
+	{% include "header.html" %}
+	
+	<!-- main navigation bar -->
+	{% include "navbar.html" %}
+
+	<div class="content">
+<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+    <input type=file name=photo>
+    <input type="submit">
+</form>
+	</div>
+
+	<!-- page footer -->
+	{% include "footer.html" %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head section -->
+{% include "head.html" %}
+
+<!-- below is  the main HTML content -->
+<body>
+<div class="wrapper">
+	
+	<!-- page header -->
+	{% include "header.html" %}
+	
+	<!-- main navigation bar -->
+	{% include "navbar.html" %}
+
+	<div class="content">
+
+		<div class="subheader">
+			<h3 style="color:#600;">Are you sure to delete this category: {{category.name}}?</h3>
+			<hr />
+
+		</div>
+
+		<form action="{{url_for('deleteCat', category_id=category.id)}}" method="POST">
+			<table>
+				<tr>
+					<td><input type="submit" value="delete"></td>
+				</tr>
+				<tr>
+					<td><input type='button' value='Cancel' onClick='history.back()' /></td>
+				</tr>
+			</table>
+		
+		</form>
+
+
+	</div>
+
+	<!-- page footer -->
+	{% include "footer.html" %}
+
+</div>
+
+</body>
+</html>

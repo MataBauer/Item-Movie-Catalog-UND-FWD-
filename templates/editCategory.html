@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head section -->
+{% include "head.html" %}
+
+<!-- below is  the main HTML content -->
+<body>
+<div class="wrapper">
+	
+	<!-- page header -->
+	{% include "header.html" %}
+	
+	<!-- main navigation bar -->
+	{% include "navbar.html" %}
+
+	<div class="content">
+		<div class="subheader">
+
+			<h3>Editing category</h3>
+			<hr />
+
+		</div>
+
+
+		<form action="{{url_for('editCat', category_id=category_id)}}" method = 'POST'>
+			<table>
+				<tr>
+					<td>Category name<td>
+					<td><input type="text" name="name" placeholder = "{{category.name}}" size=40></td>
+				</tr>
+			</table>
+			<p>
+				<input type='submit' value='Edit'>
+				<input type='button' value='Cancel' onClick='history.back()' />
+			</p>
+		</form>
+
+	</div>
+
+	<!-- page footer -->
+	{% include "footer.html" %}
+
+</div>
+
+</body>
+</html>

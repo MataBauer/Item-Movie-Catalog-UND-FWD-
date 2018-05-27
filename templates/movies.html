@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head section -->
+{% include "head.html" %}
+
+<!-- below is  the main HTML content -->
+<body>
+<div class="wrapper">
+	
+	<!-- page header -->
+	{% include "header.html" %}
+	
+	<!-- main navigation bar -->
+	{% include "navbar.html" %}
+
+	<div class="content">
+
+		{% include "flash-message.html" %}
+
+		<div class="subheader">
+			<h1>{{category.name}}</h1>
+			<hr />
+			<a href="{{url_for('showCat')}}">Category list</a> | 
+			<a href="{{url_for('newMovieItem', category_id = category.id)}}"> Add New Movie </a>
+			<hr />
+		</div>
+
+		{% for i in items %}
+		<div class="panel">
+				<div class="gimg">
+					<img src="{{i.poster}}" />
+				</div>
+				<div class="gtitle">
+					<p>
+						<h3>{{i.title}}</h3>
+						| <a href="{{url_for('editMovie',category_id = category.id, movie_id = i.id)}}">Edit</a>
+						| <a href="{{url_for('deleteMovie',category_id = category.id, movie_id = i.id)}}">Delete</a>
+					</p>
+				</div>
+				<div class="gtext">
+					<p>{{i.storyline}}</p>
+					<p>Published: {{i.published}}</p>
+				</div>
+		</div>
+		{% endfor %}	
+	</div>
+	<!-- page footer -->
+{% include "footer.html" %}
+</div>
+
+</body>
+</html>

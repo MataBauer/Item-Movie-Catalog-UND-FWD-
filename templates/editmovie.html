@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head section -->
+{% include "head.html" %}
+
+<!-- below is  the main HTML content -->
+<body>
+<div class="wrapper">
+	
+	<!-- page header -->
+	{% include "header.html" %}
+	
+	<!-- main navigation bar -->
+	{% include "navbar.html" %}
+
+	<div class="content">
+
+		<div class="subheader">
+			<h1>{{category.name}}</h1>
+			<h3>Edit movie</h3>
+			<hr />
+
+		</div>
+
+
+		<form action="{{url_for('editMovie', category_id=category_id, movie_id=item.id)}}" method = 'POST'>
+			<table>
+				<tr>
+					<td>Title</td>
+					<td><input type="text" name="title" placeholder = "{{item.title}}" size=60></td>
+				</tr>
+				<tr>
+					<td>Published</td>
+					<td><input type="text" name="published" placeholder = "{{item.published}}" size=20></td>
+				</tr>
+				<tr>
+					<td>Poster</td>
+					<td>Send the poster image by eamil to <a href="mailto:mc200d@att.com">admin</a>!</td>
+				</tr>
+				<tr>
+					<td>Storyline</td>
+					<td><textarea name="storyline" placeholder="{{item.storyline}}"></textarea></td>
+				</tr>
+			</table>
+			<p>
+				<input type='submit' value='Edit'>
+				<input type='button' value='Cancel' onClick='history.back()' />
+			</p>
+		</form>
+
+	</div>
+
+	<!-- page footer -->
+	{% include "footer.html" %}
+
+</div>
+
+</body>
+</html>
